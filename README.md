@@ -1,14 +1,20 @@
-# React + Vite
+# ⚛️ React
 
 ## 🚀 O que é React?
 
-React é uma biblioteca JavaScript para criar interfaces de usuário (UI) de forma dinâmica e eficiente. Desenvolvida pelo Facebook, ela permite construir aplicações web interativas com componentes reutilizáveis que se atualizam automaticamente quando os dados mudam.
+React é uma biblioteca JavaScript focada na construção de interfaces de usuário (UI) de forma declarativa, eficiente e baseada em componentes reutilizáveis.
+Ele é amplamente utilizado para desenvolver **Single Page Applications (SPA)**, onde a navegação acontece sem recarregar a página inteira, proporcionando uma experiência mais rápida e fluida ao usuário.
+
+Em vez de manipular o DOM diretamente, o React utiliza um **modelo declarativo** e um **Virtual DOM**, atualizando apenas as partes necessárias da interface quando os dados mudam.
+
+---
 
 ## 📚 Conceitos Fundamentais do React
 
 ### **Componentes**
 
-A base do React. São blocos de código reutilizáveis que retornam elementos JSX. Podem ser funções ou classes.
+São a base de qualquer aplicação React.
+Componentes são blocos reutilizáveis de código que retornam elementos JSX e representam partes da interface.
 
 ```jsx
 function Botao() {
@@ -16,99 +22,108 @@ function Botao() {
 }
 ```
 
+---
+
 ### **JSX**
 
-Sintaxe que permite escrever HTML dentro de JavaScript. Torna o código mais legível e intuitivo.
+JSX é uma sintaxe que permite escrever estruturas semelhantes a HTML dentro do JavaScript.
+Ele facilita a leitura e a organização da UI dentro dos componentes.
 
 ```jsx
 const elemento = <h1>Olá, Mundo!</h1>;
 ```
 
-### **Props (Properties)**
-
-São argumentos passados para componentes, permitindo compartilhar dados entre eles. Props são imutáveis.
-
-```jsx
-function Saudacao({ nome }) {
-  return <h1>Olá, {nome}!</h1>;
-}
-```
-
-### **State (Estado)**
-
-Dados que podem mudar durante a vida útil do componente. Quando o estado muda, o componente re-renderiza automaticamente.
-
-```jsx
-const [contador, setContador] = useState(0);
-```
-
-### **Hooks**
-
-Funções que permitem usar recursos do React em componentes funcionais:
-
-- `useState`: Gerencia estado
-- `useEffect`: Executa efeitos colaterais
-- `useContext`: Acessa contexto global
-- `useRef`: Cria referências mutáveis
+---
 
 ### **Renderização Condicional**
 
-Mostrar ou ocultar elementos com base em condições.
+Permite exibir elementos com base em condições lógicas.
 
 ```jsx
-{
-  isVisivel && <p>Elemento visível</p>;
-}
+{isVisivel && <p>Elemento visível</p>}
 ```
+
+---
 
 ### **Listas e Keys**
 
-Renderizar listas de elementos com a função `.map()`. Sempre usar `key` única para cada item.
+Listas são renderizadas geralmente com `.map()`.
+Cada item precisa de uma **key única** para que o React identifique mudanças corretamente.
 
 ```jsx
 {
-  tarefas.map((tarefa) => <li key={tarefa.id}>{tarefa.nome}</li>);
+  tarefas.map((tarefa) => (
+    <li key={tarefa.id}>{tarefa.nome}</li>
+  ));
 }
 ```
 
-## 📋 Sobre Este Projeto
+---
 
-Este é um projeto de **Gerenciador de Tarefas** desenvolvido com React e Vite.
+## 🧠 Sobre Este Repositório
 
-### Funcionalidades:
+Este repositório foi criado para **estudos de React**, com foco em:
 
-- ➕ **Adicionar tarefas** com um formulário simples
-- 📝 **Visualizar lista** de tarefas
-- ✅ **Marcar como concluída** (funcionalidade a desenvolver)
-- ❌ **Deletar tarefas** (funcionalidade a desenvolver)
+* Praticar conceitos fundamentais da biblioteca
+* Estruturar projetos pequenos para aprendizado progressivo
+* Testar organização de componentes e páginas
+* Consolidar conhecimentos em SPA com React
 
-### Estrutura do Projeto:
+Existe também um arquivo separado chamado **`conceitosTecnicos`**, onde são documentadas funções, padrões e aprendizados específicos adquiridos durante os estudos.
+
+---
+
+## 📋 Sobre o Projeto Atual
+
+O projeto incluído neste repositório é um **Gerenciador de Tarefas** simples, desenvolvido para praticar conceitos básicos do React.
+
+### Funcionalidades
+
+* ➕ Adicionar tarefas por formulário
+* 📝 Visualizar lista de tarefas
+* 📑 Detalhar tarefas
+* ✅ Marcar como concluída 
+* ❌ Excluir tarefas 
+
+---
+
+### Estrutura do Projeto
 
 ```
 src/
 ├── components/
-│   ├── AddTasks.jsx      (Formulário para adicionar tarefas)
-│   └── Tasks.jsx         (Exibição da lista de tarefas)
+│   ├── AddTasks.jsx
+│   └── Tasks.jsx
 ├── pages/
-│   └── TaskPage.jsx      (Página principal)
+│   └── TaskPage.jsx
 ├── assets/
-│   └── App.jsx           (Componente principal)
-└── main.jsx              (Ponto de entrada)
+│   └── App.jsx
+└── main.jsx
 ```
 
-### Tecnologias Utilizadas:
+---
 
-- **React**: Biblioteca UI
-- **Vite**: Bundler e servidor de desenvolvimento rápido
-- **Tailwind CSS**: Framework de estilização utilitária
-- **ESLint**: Análise de código
+### Tecnologias Utilizadas
+
+* React
+* Vite
+* Tailwind CSS
+* ESLint
+
+---
 
 ## 🛠️ Como Rodar o Projeto
 
 ```bash
-npm install          # Instalar dependências
-npm run dev          # Iniciar servidor de desenvolvimento
-npm run build        # Fazer build para produção
+npm install
+npm run dev
+npm run build
 ```
 
-O projeto rodará em `http://localhost:5173` com HMR (Hot Module Replacement) habilitado para desenvolvimento rápido.
+O projeto será iniciado em:
+
+```
+http://localhost:5173
+```
+
+com atualização automática em desenvolvimento (HMR).
