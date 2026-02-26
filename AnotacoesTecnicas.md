@@ -47,9 +47,27 @@ React é uma **biblioteca JavaScript para construção de interfaces de usuário
 
 ## 🔄 States
 
-* **State** representa dados internos do componente.
-* Quando o state muda, o componente é renderizado novamente.
-* Permite interfaces dinâmicas e interativas.
+State representa dados internos do componente.
+
+Quando o state muda, o componente é renderizado novamente.
+
+Permite interfaces dinâmicas e interativas.
+
+Exemplo simples
+
+```jsx
+import { useState } from "react";
+
+function Contador() {
+  const [numero, setNumero] = useState(0);
+
+  return (
+    <button onClick={() => setNumero(numero + 1)}>
+      {numero}
+    </button>
+  );
+}
+```
 
 ---
 
@@ -79,17 +97,46 @@ React é uma **biblioteca JavaScript para construção de interfaces de usuário
 
 ## 📥 Props
 
-* **Props** são propriedades passadas de um componente pai para um componente filho.
-* Permitem reutilização e comunicação entre componentes.
-* São somente leitura dentro do componente que recebe.
+Props são propriedades passadas de um componente pai para um componente filho.
+
+Permitem reutilização e comunicação entre componentes.
+
+São somente leitura dentro do componente que recebe.
+
+Exemplo simples
+
+```jsx
+function Saudacao({ nome }) {
+  return <h1>Olá, {nome}</h1>;
+}
+
+function App() {
+  return <Saudacao nome="João" />;
+}
+```
 
 ---
 
 ## 🔀 Props x Context
 
-* Props passam dados diretamente entre componentes.
-* Context permite compartilhar dados globais entre vários componentes.
-* Evita a necessidade de passar props manualmente por muitos níveis.
+Props passam dados diretamente entre componentes.
+
+Context permite compartilhar dados globais entre vários componentes.
+
+Evita a necessidade de passar props manualmente por muitos níveis.
+
+Exemplo simples com Context
+
+```jsx
+import { createContext, useContext } from "react";
+
+const TemaContext = createContext("claro");
+
+function Botao() {
+  const tema = useContext(TemaContext);
+  return <button>{tema}</button>;
+}
+```
 
 ---
 
