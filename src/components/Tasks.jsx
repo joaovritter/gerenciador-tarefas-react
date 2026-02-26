@@ -20,7 +20,8 @@ function Tasks({ tasks, onTaskClick, onDeleteTaskClick }) { //props permite pass
         <li key={task.id} className="flex gap-2">
           <button
             onClick={() => onTaskClick(task.id)} //id da tarefa atual
-            className={`bg-slate-400 text-white p-2 rounded-md w-full text-left flex items-center gap-2}`}
+            className={`p-2 rounded-md w-full text-left flex items-center gap-2 text-white ${task.isCompleted ? "bg-green-500" : "bg-slate-400"
+              }`}
           >
             {task.isCompleted && <CheckIcon />}
             {task.title}
@@ -38,7 +39,7 @@ function Tasks({ tasks, onTaskClick, onDeleteTaskClick }) { //props permite pass
 
           <button
             onClick={() => onDeleteTaskClick(task.id)}
-            className="bg-slate-400 p-2 rounded-md text-white"
+            className="bg-red-600 p-2 rounded-md text-white"
           >
             <TrashIcon />
           </button>
