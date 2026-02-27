@@ -1,9 +1,15 @@
 import { useState } from "react";
 import Input from "./Input";
 
-function AddTasks({ onAddTaskSubmit }) {
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
+//interface para definir tipos das props e seus argumentos 
+interface AddTaskProps {
+  onAddTaskSubmit: (title: string, description: string) => void;
+}
+
+// O componente funcional AddTasks espera receber as props da interface 
+const AddTasks: React.FC<AddTaskProps> = ({ onAddTaskSubmit }) => {
+  const [title, setTitle] = useState<string>("");
+  const [description, setDescription] = useState<string>("");
 
   return (
     <div className="space-y-4 p-6 bg-slate-200 rounded-md shadow flex flex-col">
@@ -25,10 +31,10 @@ function AddTasks({ onAddTaskSubmit }) {
 
       <button
         onClick={() => {
-          //verificar se titulo e descrição não estão vazios
-          //trim remove o espaco em branco
+          //verificar se titulo e descrição não estão vazios. Trim remove espaco em branco
           if (!title.trim() || !description.trim()) {
-            return alert("Preencha o título e a descrição da tarefa");
+            alert("Preencha o título e a descrição da tarefa");
+            return;
           }
           onAddTaskSubmit(title, description);
           setTitle(""); //limpa o input após adicionar a tarefa
@@ -40,6 +46,8 @@ function AddTasks({ onAddTaskSubmit }) {
       </button>
     </div>
   );
-}
+};
+
 
 export default AddTasks;
+

@@ -2,9 +2,17 @@ import AddTasks from "./components/AddTasks";
 import Tasks from "./components/Tasks";
 import React, { useEffect, useState } from "react";
 
-function App() {
-  const [tasks, setTasks] = useState(
-    JSON.parse(localStorage.getItem("tasks")) || [] //pega o item do local storage, se for vazio guarda lista vazia
+interface Task {
+  id: number;
+  title: string;
+  description: string;
+  isCompleted: boolean;
+}
+
+
+const App = () =>{
+  const [tasks, setTasks] = useState<Task[]>(
+    JSON.parse(localStorage.getItem("tasks") || "[]") //pega o item do local storage, se for vazio guarda lista vazia
   );
 
 
@@ -16,42 +24,19 @@ function App() {
 
 
 
-  //PARA CHAMAR API E PEGAR TEREFAS
-  /*
-  useEffect(() => {
-    const fetchTasks = async () => {
-      //chamar api
-      const response = await fetch('https://jsonplaceholder.typicode.com/todos?_limit=10', {
-        method: 'GET'
-      });
-      //pegar dados que ela retorna
-      const data = await response.json();
-      console.log(data);
-
-      //armazenar/persistir os dados
-      setTasks(data)
-    };
-    fetchTasks();
-
-  }, []); //array vazio = executa apenas uma vez, quando o componente for montado
-
-  */
-
-
-  function onTaskClick(taskId) {
+  function onTaskClick(taskId: number) : void {
     const newTasks = tasks.map((task) => {
-      //precisa atualizar esta tarefa
       if (task.id == taskId) {
         return { ...task, isCompleted: !task.isCompleted }; //retorna tudo da task e o inverso de isCompleted
       }
-      //não precisa atualizar
       return task;
     });
     setTasks(newTasks);
   }
 
-  function onAddTaskSubmit(title, description) {
-    const newTask = {
+
+  function onAddTaskSubmit(title: string, description: string): void {
+    const newTask: Task = {
       id: tasks.length + 1, //qtd de tarefas atual +1, para o id ser unico
       title: title,
       description: description,
@@ -60,7 +45,7 @@ function App() {
     setTasks([...tasks, newTask]); //... significa que vai manter tudo que tem em tasks, mais o que vem depois da virgula
   }
 
-  function onDeleteTaskClick(taskId) {
+  function onDeleteTaskClick(taskId: number): void {
     const newTasks = tasks.filter((task) => task.id != taskId);
     setTasks(newTasks);
   }

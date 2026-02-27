@@ -1,11 +1,27 @@
 import { CheckIcon, ChevronRightIcon, TrashIcon } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
+//interface para definir o tipo de uma interface
+interface Task {
+  id: number;
+  title: string;
+  description: string;
+  isCompleted: boolean;
 
-function Tasks({ tasks, onTaskClick, onDeleteTaskClick }) { //props permite passar dados de um componente pai para um componente filho
+}
+
+//interface para props do componente Tasks
+interface TasksProps {
+  tasks: Task[],
+  onTaskClick: (taskId: number) => void,
+  onDeleteTaskClick: (taskId: number) => void,
+}
+
+const Tasks: React.FC<TasksProps> = ({ tasks, onTaskClick, onDeleteTaskClick }) => { //props permite passar dados de um componente pai para um componente filho
   const navigate = useNavigate();
 
-  function onSeeDetailsClick(task) {
+
+  function onSeeDetailsClick(task: Task) {
     const query = new URLSearchParams();
     query.set("title", task.title);
     query.set("description", task.description);
