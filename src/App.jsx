@@ -1,5 +1,5 @@
-import AddTasks from "../components/AddTasks";
-import Tasks from "../components/Tasks";
+import AddTasks from "./components/AddTasks";
+import Tasks from "./components/Tasks";
 import React, { useEffect, useState } from "react";
 
 function App() {
