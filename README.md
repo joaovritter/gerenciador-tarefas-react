@@ -52,8 +52,8 @@ function Botao({ texto }: BotaoProps) {
 
 Comparação rápida:
 
-* **JSX**: mais simples para começar e prototipar
-* **TSX**: adiciona segurança de tipos e melhor manutenção em projetos que crescem
+- **JSX**: mais simples para começar e prototipar
+- **TSX**: adiciona segurança de tipos e melhor manutenção em projetos que crescem
 
 ---
 
@@ -62,7 +62,9 @@ Comparação rápida:
 Permite exibir elementos com base em condições lógicas.
 
 ```jsx
-{isVisivel && <p>Elemento visível</p>}
+{
+  isVisivel && <p>Elemento visível</p>;
+}
 ```
 
 ---
@@ -74,9 +76,7 @@ Cada item precisa de uma **key única** para que o React identifique mudanças c
 
 ```jsx
 {
-  tarefas.map((tarefa) => (
-    <li key={tarefa.id}>{tarefa.nome}</li>
-  ));
+  tarefas.map((tarefa) => <li key={tarefa.id}>{tarefa.nome}</li>);
 }
 ```
 
@@ -86,10 +86,10 @@ Cada item precisa de uma **key única** para que o React identifique mudanças c
 
 Este repositório foi criado para **estudos de React**, com foco em:
 
-* Praticar conceitos fundamentais da biblioteca
-* Estruturar projetos pequenos para aprendizado progressivo
-* Testar organização de componentes e páginas
-* Consolidar conhecimentos em SPA com React
+- Praticar conceitos fundamentais da biblioteca
+- Estruturar projetos pequenos para aprendizado progressivo
+- Testar organização de componentes e páginas
+- Consolidar conhecimentos em SPA com React
 
 Existe também um arquivo separado chamado **`conceitosTecnicos`**, onde são documentadas funções, padrões e aprendizados específicos adquiridos durante os estudos.
 
@@ -101,11 +101,11 @@ O projeto incluído neste repositório é um **Gerenciador de Tarefas** simples,
 
 ### Funcionalidades
 
-* ➕ Adicionar tarefas por formulário
-* 📝 Visualizar lista de tarefas
-* 📑 Detalhar tarefas
-* ✅ Marcar como concluída 
-* ❌ Excluir tarefas 
+- ➕ Adicionar tarefas por formulário
+- 📝 Visualizar lista de tarefas
+- 📑 Detalhar tarefas
+- ✅ Marcar como concluída
+- ❌ Excluir tarefas
 
 ---
 
@@ -128,11 +128,11 @@ src/
 
 ### Tecnologias Utilizadas
 
-* React
-* TypeScript (TSX)
-* Vite
-* Tailwind CSS
-* ESLint
+- React
+- TypeScript (TSX)
+- Vite
+- Tailwind CSS
+- ESLint
 
 ---
 

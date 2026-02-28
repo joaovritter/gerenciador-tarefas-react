@@ -1,6 +1,7 @@
 import AddTasks from "./components/AddTasks";
 import Tasks from "./components/Tasks";
 import React, { useEffect, useState } from "react";
+//para importarmos uma biblioteca de id aleatório do tipo number, 
 
 interface Task {
   id: number;
@@ -35,11 +36,12 @@ const App = () => {
   }
 
 
-  let nextId = tasks.length + 1; //id da próxima tarefa, para garantir que seja unico
-
+  //Recupera o proximo id do local storage, se não existir, inicia com 1
   function onAddTaskSubmit(title: string, description: string): void {
+    const newId = tasks.length > 0 ? Math.max(...tasks.map(task => task.id)) + 1 : 1; // Gera o próximo ID único
+
     const newTask: Task = {
-      id: nextId,
+      id: newId,
       title: title,
       description: description,
       isCompleted: false,
