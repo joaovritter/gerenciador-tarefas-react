@@ -38,6 +38,32 @@ React é uma **biblioteca JavaScript para construção de interfaces de usuário
 * Facilita a criação de componentes visuais.
 * O JSX é transformado em JavaScript puro durante a compilação.
 
+## 🔷 TSX (TypeScript + JSX)
+
+* TSX é a sintaxe usada quando combinamos React com TypeScript.
+* A estrutura visual continua parecida com JSX, mas com tipagem estática.
+* Permite tipar `props`, `state`, parâmetros de função e eventos.
+* Ajuda a evitar erros comuns antes da execução do código.
+
+Exemplo simples
+
+```tsx
+type SaudacaoProps = {
+  nome: string;
+};
+
+function Saudacao({ nome }: SaudacaoProps) {
+  return <h1>Olá, {nome}</h1>;
+}
+```
+
+Comparação rápida:
+
+* **JSX**: foco em simplicidade e velocidade inicial
+* **TSX**: foco em segurança, manutenção e escalabilidade
+
+Ambos seguem a mesma ideia de componentes e reatividade; a principal diferença é que TSX adiciona tipos.
+
 ### Regra importante
 
 * Um componente JSX **só retorna um elemento raiz**.
@@ -107,6 +133,22 @@ Exemplo simples
 
 ```jsx
 function Saudacao({ nome }) {
+  return <h1>Olá, {nome}</h1>;
+}
+
+function App() {
+  return <Saudacao nome="João" />;
+}
+```
+
+Exemplo tipado em TSX
+
+```tsx
+type SaudacaoProps = {
+  nome: string;
+};
+
+function Saudacao({ nome }: SaudacaoProps) {
   return <h1>Olá, {nome}</h1>;
 }
 

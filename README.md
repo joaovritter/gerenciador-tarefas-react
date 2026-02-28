@@ -33,6 +33,28 @@ Ele facilita a leitura e a organização da UI dentro dos componentes.
 const elemento = <h1>Olá, Mundo!</h1>;
 ```
 
+### **TSX (TypeScript + JSX)**
+
+TSX é JSX com tipagem estática do TypeScript.
+Com TSX, além da UI, também tipamos `props`, `state`, eventos e funções, aumentando previsibilidade do código e reduzindo erros em tempo de desenvolvimento.
+
+Exemplo simples:
+
+```tsx
+type BotaoProps = {
+  texto: string;
+};
+
+function Botao({ texto }: BotaoProps) {
+  return <button>{texto}</button>;
+}
+```
+
+Comparação rápida:
+
+* **JSX**: mais simples para começar e prototipar
+* **TSX**: adiciona segurança de tipos e melhor manutenção em projetos que crescem
+
 ---
 
 ### **Renderização Condicional**
@@ -92,13 +114,14 @@ O projeto incluído neste repositório é um **Gerenciador de Tarefas** simples,
 ```
 src/
 ├── components/
-│   ├── AddTasks.jsx
-│   └── Tasks.jsx
+│   ├── AddTasks.tsx
+│   ├── Input.tsx
+│   └── Tasks.tsx
 ├── pages/
-│   └── TaskPage.jsx
-├── assets/
-│   └── App.jsx
-└── main.jsx
+│   └── TaskPage.tsx
+├── App.tsx
+├── ExemploApp.tsx
+└── main.tsx
 ```
 
 ---
@@ -106,6 +129,7 @@ src/
 ### Tecnologias Utilizadas
 
 * React
+* TypeScript (TSX)
 * Vite
 * Tailwind CSS
 * ESLint

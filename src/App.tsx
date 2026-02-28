@@ -10,7 +10,7 @@ interface Task {
 }
 
 
-const App = () =>{
+const App = () => {
   const [tasks, setTasks] = useState<Task[]>(
     JSON.parse(localStorage.getItem("tasks") || "[]") //pega o item do local storage, se for vazio guarda lista vazia
   );
@@ -24,7 +24,7 @@ const App = () =>{
 
 
 
-  function onTaskClick(taskId: number) : void {
+  function onTaskClick(taskId: number): void {
     const newTasks = tasks.map((task) => {
       if (task.id == taskId) {
         return { ...task, isCompleted: !task.isCompleted }; //retorna tudo da task e o inverso de isCompleted
@@ -35,9 +35,11 @@ const App = () =>{
   }
 
 
+  let nextId = tasks.length + 1; //id da próxima tarefa, para garantir que seja unico
+
   function onAddTaskSubmit(title: string, description: string): void {
     const newTask: Task = {
-      id: tasks.length + 1, //qtd de tarefas atual +1, para o id ser unico
+      id: nextId,
       title: title,
       description: description,
       isCompleted: false,
